@@ -21,7 +21,7 @@ public class ConfigReader {
         }
     }
 
-    public static String getProperty(String key) {
+    public String getProperty(String key) {
         if (System.getProperty(key) != null) {
             return System.getProperty(key);
         } else if (properties.containsKey(key)) {

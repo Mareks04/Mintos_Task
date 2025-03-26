@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Localhost server for testing",
   "main": "index.js",
-  "scripts": {
-    "json:server": "json-server --watch db.json --port 8080"
-  },
-  "author": "",
+"scripts": {
+  "json:server": "json-server --watch db.json --port 8080 --routes routes.json"
+},
+  "author": "Mareks Pīternieks",
   "license": "ISC",
   "devDependencies": {
     "json-server": "^0.17.4"
