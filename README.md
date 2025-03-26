@@ -15,7 +15,7 @@ This project sets up a localhost API server using `json-server` (*version 0.17.4
 
 1) Before running this project, ensure you have **Node.js** installed:
 
-    [Download Node.js](https://nodejs.org/en/download) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Node.js version v22.14.0 under test were used*
+    [Download Node.js](https://nodejs.org/en/download) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Node.js version 22.14.0 was used during testing*
 
     Verify installation by running:
    ```sh
@@ -24,7 +24,7 @@ This project sets up a localhost API server using `json-server` (*version 0.17.4
 
 2) Run the following command in the project root to install required dependencies:
 
-    `npm install` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*npm version 11.2.0 under test were used*
+    `npm install` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*npm version 11.2.0 was used during testing*
 
      Verify installation by running:
    ```sh
@@ -65,8 +65,8 @@ This project sets up an API automation framework using **Java, Maven, and Cucumb
 ### Prerequisites
 
 1) Ensure you have **Java** and **Maven** installed on your system:
-   - [Download Java](https://www.oracle.com/java/technologies/javase-downloads.html) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Java version 23.0.2 under test were used*
-   - [Download Maven](https://maven.apache.org/download.cgi) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Maven version 4.0.0-rc-2 under test were used*
+   - [Download Java](https://www.oracle.com/java/technologies/javase-downloads.html) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Java version 23.0.2 was used during testing*
+   - [Download Maven](https://maven.apache.org/download.cgi) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Maven version 4.0.0-rc-2 was used during testing*
 
 2) Verify installation by running:
    ```sh
