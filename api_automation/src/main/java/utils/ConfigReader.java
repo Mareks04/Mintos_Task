@@ -7,8 +7,10 @@ import java.util.Properties;
 
 public class ConfigReader {
     private static Properties properties;
-    private static final String DEFAULT_PROPERTIES = "config.properties";
-    private static final String CONFIG_PATH = "src" + File.separator + "main" + File.separator + "resources" + File.separator;
+    private static final String DEFAULT_PROPERTIES = "app.properties";
+    private static final String CONFIG_PATH = "src" + File.separator
+            + "main" + File.separator + "resources"
+            + File.separator + "config" + File.separator;
 
     public ConfigReader() {
         properties = new Properties();
@@ -19,7 +21,7 @@ public class ConfigReader {
         }
     }
 
-    public String getProperty(String key) {
+    public static String getProperty(String key) {
         if (System.getProperty(key) != null) {
             return System.getProperty(key);
         } else if (properties.containsKey(key)) {

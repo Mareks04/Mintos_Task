@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import io.restassured.response.Response;
 import models.PersonalIdDocument;
 import models.User;
+import utils.ConfigReader;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +15,7 @@ import static org.hamcrest.Matchers.*;
 
 public class UserSteps {
     private Response response;
-    private static final String BASE_URL = "http://localhost:8080/api/users";
+    private static final String BASE_URL = ConfigReader.getProperty("base.url");
     private final Map<String, Object> requestBody = new HashMap<>();
 
     @Given("create new users with details:")
