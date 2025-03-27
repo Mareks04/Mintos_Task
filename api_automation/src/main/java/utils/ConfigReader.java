@@ -1,27 +1,28 @@
 package utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 
 public class ConfigReader {
-    private static Properties properties;
-    private static final String DEFAULT_PROPERTIES = "app.properties";
-    private static final String CONFIG_PATH = "src" + File.separator
-            + "main" + File.separator + "resources"
+    public static Properties properties;
+    private static String DEFAULT_PROPERTIES = "app.properties";
+    private static String CONFIG_PATH = "src" + File.separator
+            + "test" + File.separator + "resources"
             + File.separator + "config" + File.separator;
 
-    public ConfigReader() {
+    public static void getInstance() {
         properties = new Properties();
-        try (FileInputStream fileInputStream = new FileInputStream(CONFIG_PATH  + DEFAULT_PROPERTIES)) {
+        try (InputStream fileInputStream = new FileInputStream(CONFIG_PATH  + DEFAULT_PROPERTIES)) {
             properties.load(fileInputStream);
-        } catch (IOException e) {
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
             throw new RuntimeException("Failed to load configuration file: " + DEFAULT_PROPERTIES, e);
         }
     }
 
-    public String getProperty(String key) {
+    public static String getProperty(String key) {
         if (System.getProperty(key) != null) {
             return System.getProperty(key);
         } else if (properties.containsKey(key)) {

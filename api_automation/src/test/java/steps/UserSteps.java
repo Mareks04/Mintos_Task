@@ -15,9 +15,7 @@ import static org.hamcrest.Matchers.*;
 
 public class UserSteps {
     private Response response;
-    static ConfigReader prop = new ConfigReader();
-    private static final String BASE_URL = prop.getProperty("base.url");
-//    private static final String BASE_URL = "http://localhost:8080/api/users";
+    private static final String BASE_URL = ConfigReader.properties.getProperty("base.url");
     private final Map<String, Object> requestBody = new HashMap<>();
 
     @Given("create new users with details:")
