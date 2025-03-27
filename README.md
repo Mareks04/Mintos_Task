@@ -5,7 +5,7 @@ This repository consists of two projects:
 
 **api_automation** – An API automation framework using Java, Maven, and Cucumber to test the user management API.
 
-It is recommended to start with **localhost_server** to set up and validate the API before proceeding with **api_automation** for automated testing.
+It is recommended to start with **localhost_server** to set up server for API before proceeding with **api_automation** for automated testing.
 
 
 ## JSON server localhost setup (localhost_server)
