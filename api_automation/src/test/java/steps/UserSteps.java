@@ -16,6 +16,8 @@ import static org.hamcrest.Matchers.*;
 public class UserSteps {
     private Response response;
     private static final String BASE_URL = ConfigReader.properties.getProperty("base.url");
+    private static final String USERNAME = ConfigReader.properties.getProperty("api.username");
+    private static final String PASSWORD = ConfigReader.properties.getProperty("api.password");
     private final Map<String, Object> requestBody = new HashMap<>();
 
     @Given("create new users with details:")
@@ -24,19 +26,18 @@ public class UserSteps {
             PersonalIdDocument personalIdDocument = new PersonalIdDocument(
                     userData.get("documentId"),
                     userData.get("countryOfIssue"),
-                    userData.get("validUntil")
-            );
+                    userData.get("validUntil"));
 
             User user = new User(
                     userData.get("firstName"),
                     userData.get("lastName"),
                     userData.get("email"),
                     userData.get("dateOfBirth"),
-                    personalIdDocument
-            );
+                    personalIdDocument);
 
             response = given()
                     .contentType("application/json")
+                    .auth().preemptive().basic(USERNAME, PASSWORD)
                     .body(user)
                     .when()
                     .post(BASE_URL);
@@ -47,6 +48,7 @@ public class UserSteps {
     public void getUserById(String id) {
         response = given()
                 .contentType("application/json")
+                .auth().preemptive().basic(USERNAME, PASSWORD)
                 .pathParam("id", id)
                 .when()
                 .get(BASE_URL + "/{id}");
@@ -57,6 +59,7 @@ public class UserSteps {
         requestBody.put(field, newValue);
         response = given()
                 .contentType("application/json")
+                .auth().preemptive().basic(USERNAME, PASSWORD)
                 .body(requestBody)
                 .pathParam("id", id)
                 .when()
@@ -66,6 +69,7 @@ public class UserSteps {
     @Given("delete user with ID {string}")
     public void deleteUser(String id) {
         response = given()
+                .auth().preemptive().basic(USERNAME, PASSWORD)
                 .pathParam("id", id)
                 .when()
                 .delete(BASE_URL + "/{id}");
@@ -112,6 +116,7 @@ public class UserSteps {
     public void retrieveAllUsers() {
         response = given()
                 .contentType("application/json")
+                .auth().preemptive().basic(USERNAME, PASSWORD)
                 .when()
                 .get(BASE_URL);
     }
@@ -132,6 +137,7 @@ public class UserSteps {
                 String userId = user.get("id").toString();
                 given()
                         .pathParam("id", userId)
+                        .auth().preemptive().basic(USERNAME, PASSWORD)
                         .when()
                         .delete(BASE_URL + "/{id}")
                         .then()

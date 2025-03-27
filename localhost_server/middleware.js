@@ -1,4 +1,27 @@
+const USERNAME = "mintos_admin";
+const PASSWORD = "M%S@X92XZPP290"; 
+
 module.exports = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith("Basic ")) {
+        return res.status(401).json({
+            title: "Unauthorized",
+            description: "Missing or invalid authentication credentials",
+        });
+    }
+
+    const base64Credentials = authHeader.split(" ")[1];
+    const decodedCredentials = Buffer.from(base64Credentials, "base64").toString("utf-8");
+    const [username, password] = decodedCredentials.split(":");
+
+    if (username !== USERNAME || password !== PASSWORD) {
+        return res.status(403).json({
+            title: "Forbidden",
+            description: "Invalid username or password",
+        });
+    }
+
     if (req.method === "POST") {
         const { firstName, lastName, email, dateOfBirth, personalIdDocument } = req.body;
 
