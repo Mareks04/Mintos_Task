@@ -27,6 +27,6 @@ public class Hooks {
 
     @After
     public void tearDown(Scenario scenario) {
-        System.out.println("Scenario: '" + scenario.getName() + "' has ended");
+        System.out.println("Scenario: '" + scenario.getName() + "' has finished");
     }
 }
